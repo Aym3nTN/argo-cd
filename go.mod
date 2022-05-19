@@ -239,6 +239,8 @@ require (
 require (
 	github.com/cenkalti/backoff/v4 v4.1.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
+	github.com/gosimple/slug v1.12.0 // indirect
+	github.com/gosimple/unidecode v1.0.1 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.7.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/internal/retry v1.6.3 // indirect
@@ -248,6 +250,7 @@ require (
 )
 
 replace (
+	github.com/argoproj/argo-cd/v2/applicationset => ./applicationset
 	// https://github.com/golang/go/issues/33546#issuecomment-519656923
 	github.com/go-check/check => github.com/go-check/check v0.0.0-20180628173108-788fd7840127
 

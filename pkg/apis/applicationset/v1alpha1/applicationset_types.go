@@ -392,6 +392,7 @@ type SCMProviderGeneratorFilter struct {
 type PullRequestGenerator struct {
 	// Which provider to use and config for it.
 	Github          *PullRequestGeneratorGithub          `json:"github,omitempty"`
+	Gitlab          *PullRequestGeneratorGitlab          `json:"gitlab,omitempty"`
 	Gitea           *PullRequestGeneratorGitea           `json:"gitea,omitempty"`
 	BitbucketServer *PullRequestGeneratorBitbucketServer `json:"bitbucketServer,omitempty"`
 	// Filters for which pull requests should be considered.
@@ -413,6 +414,18 @@ type PullRequestGeneratorGitea struct {
 	TokenRef *SecretRef `json:"tokenRef,omitempty"`
 	// Allow insecure tls, for self-signed certificates; default: false.
 	Insecure bool `json:"insecure,omitempty"`
+}
+
+// PullRequestGenerator defines connection info specific to Gitlab.
+type PullRequestGeneratorGitlab struct {
+	// Gitlab repo name to scan. Required.
+	Repo string `json:"repo"`
+	// The Gitlab API URL to talk to. Required
+	API string `json:"api"`
+	// Authentication token reference.
+	TokenRef *SecretRef `json:"tokenRef,omitempty"`
+	// Labels is used to filter the MRs that you want to target
+	Labels []string `json:"labels,omitempty"`
 }
 
 // PullRequestGenerator defines connection info specific to GitHub.
