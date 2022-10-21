@@ -28,6 +28,7 @@ func init() {
 	delete(sprigFuncMap, "expandenv")
 	delete(sprigFuncMap, "getHostByName")
 	sprigFuncMap["normalize"] = SanitizeName
+	sprigFuncMap["slugify"] = Slugify
 }
 
 type Renderer interface {
@@ -342,4 +343,9 @@ func SanitizeName(name string) string {
 	}
 
 	return strings.Trim(name, "-.")
+}
+
+func Slugify(name string, length int) string {
+
+	return name[:length]
 }
